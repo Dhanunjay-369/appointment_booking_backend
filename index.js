@@ -8,10 +8,12 @@ const CurrentUserModel=require("./models/CurrentUser.js");
 const BookingModel=require('./models/Bookings.js');
 
 const app=express();
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
+mongoose.set('strictQuery', false);
 mongoose.connect("mongodb://127.0.0.1:27017/appointment_booking");
+// mongoose.connect("mongodb+srv://dhanunjayareddykurakula:eVNfiBLDJjKOF6iN@cluster0.bnccbi4.mongodb.net/");
 
 app.put('/delete/:id',(req,res)=>{
     const {id}=req.params;
